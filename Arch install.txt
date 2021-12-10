@@ -1,0 +1,126 @@
+//Lol someday i will make this a sh script, until then this is just a txt with instructions on how i installed arch, please dont hurt me
+ping archlinux.org
+timedatectl set-ntp true
+//timedatectl list-timezones | grep Europe/Ams
+timedatectl set-timezone Europe/Amsterdam
+fdisk -l
+fdisk /dev/sda
+	m
+	g
+	n
+	1
+	ENTER
+	+550M
+	
+	n
+	2
+	ENTER
+	+64G //Need to buy more ram lmfao
+	
+	n
+	3
+	ENTER
+	ENTER
+	
+	t
+	1
+	1 - Efi System
+	
+	t
+	2
+	19 - Linux Swap
+	
+	w
+	
+clear
+//q to get out of shit
+mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda2
+swapon /dev/sda2
+mkfs.ext4 /dev/sda3
+mount /dev/sda3 /mnt
+pacstrap /mnt base linux linux-firmware sudo nano networkmanager git ntfs-3g base-devel net-tools
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+hwclock --systohc
+nano /etc/locale.gen (uncomment nl_NL.UTF-8 UTF-8)
+locale-gen
+nano /etc/hostname (arch-warden)
+nano /etc/hosts
+//CONTENTS FOR HOSTS
+127.0.0.1        localhost
+::1              localhost
+127.0.1.1        arch-warden.localdomain	arch-warden
+//
+passwd
+	//Put sussy password here
+	
+useradd -m warden
+passwd warden
+	//Put sussy password here
+usermod -aG wheel,audio,video,optical,storage(,libvert do this later when u got virt manager) warden
+EDITOR=nano visudo (uncomment %wheel ALL=(ALL) ALL)
+pacman -S grub efibootmgr dosfstools os-prober mtools
+mkdir /boot/EFI
+mount /dev/sda1 /boot/EFI
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+systemctl enable NetworkManager
+exit
+umount -R /mnt
+reboot
+
+sudo nano /etc/pacman.conf
+	//Uncomment multilib
+sudo pacman -Syu
+pacman -S firefox discord steam nvidia lib32-nvidia-utils xorg xorg-xinit rxvt-unicode nitrogen picom exa htop lxappearance qt5ct arc-gtk-theme arc-icon-theme kvantum-qt5
+//Yes we want all xorg packages
+//ttf-font = 1 (gnu)
+//vulkan driver = 2 (nvidia-utils)
+//lib vulkan driver = 2 (nvidia)
+//if you need it nvidia-xconfig
+
+//home directory
+cp /etc/X11/xinit/xinitrc /home/warden/.xinitrc
+nano .xinitrc
+	//Remove last 5 shitty lines
+	//Add this instead
+	nitrogen --restore &(& means background thingy)
+	picom & //add --no-vysnc if youre running in virtualbox
+	slstatus &
+	exec dwm
+nano .bash_profile
+	if [ -z "$DISPLAY" ] && [ $(tty) == /dev/tty1 ]; then
+	  startx
+	fi
+
+//Copy bashrc
+//compile dwm/slstatus/dmenu on patches branch
+
+sudo git clone https://aur.archlinux.org/yay-git.git
+cd yay-git/
+makepkg -si
+//use vscodium bin
+//install consolas-font nerdfonts-roboto-mono
+//Set themes with lxappearance(Arc Dark, Roboto font 10, Arc icons) and qt5ct(Kvantum dark, Roboto font 10, Arc icons)
+//Lots of shit changed in my dotfiles that i didnt track here, just copy from the repo
+
+
+
+
+
+
+
+
+
+
+
+
+//urvxt and awesome are gay, using dwm and alacritty now
+cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+nano ~/.config/awesome/rc.lua
+	//Change terminal to urxvt
+
+
+	
