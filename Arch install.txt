@@ -74,7 +74,7 @@ reboot
 sudo nano /etc/pacman.conf
 	//Uncomment multilib
 sudo pacman -Syu
-pacman -S firefox discord steam nvidia lib32-nvidia-utils xorg xorg-xinit rxvt-unicode nitrogen picom exa htop lxappearance qt5ct arc-gtk-theme arc-icon-theme kvantum-qt5
+pacman -S firefox discord steam nvidia lib32-nvidia-utils xorg xorg-xinit alacritty nitrogen picom exa htop lxappearance qt5ct arc-gtk-theme arc-icon-theme kvantum-qt5
 //Yes we want all xorg packages
 //ttf-font = 1 (gnu)
 //vulkan driver = 2 (nvidia-utils)
