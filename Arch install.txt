@@ -102,7 +102,7 @@ sudo git clone https://aur.archlinux.org/yay-git.git
 cd yay-git/
 makepkg -si
 //use vscodium bin
-//install consolas-font nerdfonts-roboto-mono
+//install consolas-font nerd-fonts-roboto-mono
 //Set themes with lxappearance(Arc Dark, Roboto font 10, Arc icons) and qt5ct(Kvantum dark, Roboto font 10, Arc icons)
 //Lots of shit changed in my dotfiles that i didnt track here, just copy from the repo
 
