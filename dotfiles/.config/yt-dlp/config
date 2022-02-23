@@ -1,0 +1,3 @@
+-o ~/Videos/YouTube/%(channel)s-%(channel_id)s/%(title)s_%(id)s.%(ext)s
+--cookies ~/cookies.txt
+--no-playlist

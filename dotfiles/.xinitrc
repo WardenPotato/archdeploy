@@ -48,7 +48,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+#dbus-send --print-reply --system --type=method_call  --dest=org.freedesktop.login1 /org/freedesktop/login1/session/_31 org.freedesktop.login1.Session.SetType string:"x11" & > ~/dbuslog.txt
 nitrogen --restore &
-picom --no-vsync &
+picom &
 slstatus &
-exec dwm
+exec dwm > /home/warden/dwm.log
+export XDG_SESSION_TYPE=x11

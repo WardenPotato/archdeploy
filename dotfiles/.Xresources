@@ -54,3 +54,11 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
+
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.autohint: 1
+Xft.rgba: rgb
+Xft.hintstyle: hintmedium
+Xft.lcdfilter: lcddefault
+Xft.dpi: 93

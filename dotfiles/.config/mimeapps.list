@@ -1,0 +1,25 @@
+[Added Associations]
+application/x-wine-extension-ini=visual-studio-code.desktop;
+image/gif=qimgv.desktop;
+image/jpeg=qimgv.desktop;
+text/plain=visual-studio-code.desktop;codium.desktop;
+text/x-lua=visual-studio-code.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-XBHSG1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-XBHSG1.desktop;
+
+[Default Applications]
+application/x-wine-extension-ini=visual-studio-code.desktop;
+image/gif=qimgv.desktop;
+image/jpeg=qimgv.desktop;
+inode/directory=org.kde.dolphin.desktop
+message/rfc822=userapp-Thunderbird-XBHSG1.desktop
+text/html=firefox.desktop
+text/plain=visual-studio-code.desktop;
+text/x-lua=visual-studio-code.desktop;
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-XBHSG1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-XBHSG1.desktop
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/unknown=firefox.desktop

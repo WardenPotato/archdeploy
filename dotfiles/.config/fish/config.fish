@@ -1,16 +1,14 @@
-#
-# ~/.bashrc
-#
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+    starship init fish | source
+end
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-#PS1='[\u@\h \W]\$ '
-shopt -s autocd
 export EDITOR='nano'
 export VISUAL='code'
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+#Disable greeting
+set fish_greeting
 
 #Aliases
 alias compiledwm="cd ~/dwm && git pull && sudo make clean install"
@@ -23,5 +21,4 @@ alias vc="vscodium"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-
-eval "$(starship init bash)"
+alias fetchhr="cd ~/Work/HR2Day/Repos/dx-tooling-scratch && git pull && cd ~/Work/HR2Day/Repos/ETCopyData && git pull"
